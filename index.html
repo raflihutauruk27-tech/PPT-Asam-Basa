@@ -210,7 +210,7 @@
                 <button id="btn-home" class="w-10 h-10 rounded-full hover:bg-white/5 transition flex items-center justify-center text-gray-300" title="Kembali ke Beranda">
                     <i class="fas fa-home"></i>
                 </button>
-                <span id="slide-indicator" class="text-xs font-bold mt-1 text-brand-cyan tracking-widest">01 / 14</span>
+                <span id="slide-indicator" class="text-xs font-bold mt-1 text-brand-cyan tracking-widest">01 / 15</span>
             </div>
             <button id="btn-next" class="px-5 py-2 rounded-lg bg-gradient-to-r from-brand-blue to-brand-cyan text-white hover:shadow-[0_0_15px_rgba(0,242,254,0.6)] transition flex items-center gap-2 text-sm font-bold shadow-md">
                 <span class="hidden sm:inline">Berikutnya</span> <i class="fas fa-arrow-right"></i>
@@ -810,7 +810,30 @@
             </div>
         </section>
 
-        <!-- SLIDE 10: LABORATORIUM MINI -->
+        <!-- SLIDE 10: VIDEO PEMBELAJARAN -->
+        <section class="slide" data-title="Video Pembelajaran">
+            <div class="slide-title-wrapper">
+                <h2 class="slide-title">Video Pembelajaran</h2>
+            </div>
+            
+            <p class="mb-6 text-sm text-gray-300 text-center font-medium bg-black/30 p-2 rounded-lg inline-block px-4 relative z-10 shadow-sm border border-white/10">
+                Simak video berikut ini untuk memperkuat pemahaman Anda mengenai Teori Asam dan Basa.
+            </p>
+
+            <div class="w-full max-w-4xl relative z-10 glass-card p-4 md:p-6 shadow-2xl border-t-4 border-t-brand-cyan pointer-events-auto">
+                <div class="relative w-full overflow-hidden rounded-xl bg-black/50" style="padding-top: 56.25%;">
+                    <!-- Menambahkan playsinline=1 agar video tidak membuka tab baru di HP, dan modestbranding=1 untuk meminimalisir logo YouTube -->
+                    <iframe class="absolute top-0 left-0 w-full h-full border-0 relative z-20"
+                        src="https://www.youtube.com/embed/NbIAEbzxmDQ?rel=0&modestbranding=1&playsinline=1" 
+                        title="YouTube Video Player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: LABORATORIUM MINI -->
         <section class="slide" data-title="Laboratorium Mini">
             <div class="slide-title-wrapper">
                 <h2 class="slide-title">Laboratorium Virtual</h2>
@@ -1383,8 +1406,8 @@
         }
 
         function triggerSlideSpecificLogic(index) {
-            if(index !== 9 && labAnimationId) cancelAnimationFrame(labAnimationId);
-            if(index === 9 && !labInitialized) initLabSimulation();
+            if(index !== 10 && labAnimationId) cancelAnimationFrame(labAnimationId);
+            if(index === 10 && !labInitialized) initLabSimulation();
         }
 
         // Background Particles
@@ -1443,7 +1466,7 @@
 
         window.addEventListener('resize', () => {
             initBgParticles();
-            if(labInitialized && currentSlide === 9) resizeLabCanvas();
+            if(labInitialized && currentSlide === 10) resizeLabCanvas();
         });
         
         initBgParticles();
@@ -1506,7 +1529,7 @@
             });
             
             function labLoop() {
-                if(currentSlide === 9) drawLab();
+                if(currentSlide === 10) drawLab();
                 labAnimationId = requestAnimationFrame(labLoop);
             }
             labLoop();
